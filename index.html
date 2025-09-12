@@ -1,0 +1,1838 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ubuntu Trade Company - Foire de Canton 2025</title>
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="assets/ico/Icon.jpeg">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- AOS for animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1e40af; /* Professional blue */
+            --primary-hover: #1e3a8a;
+            --secondary-color: #f1f5f9;
+            --dark-color: #111827;
+            --light-color: #f8fafc;
+            --text-color: #1f2937;
+            --text-light: #6b7280;
+            --bronze-color: #a16207;
+            --gold-color: #d4af37;
+            --diamond-color: #0e76a8;
+            --platinum-color: #e5e4e2;
+            --accent-color: #ff6b35;
+            --success-color: #10b981;
+            --gradient-primary: linear-gradient(135deg, var(--primary-color), #3b82f6);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 12px 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 8px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand img {
+            max-width: 48px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            margin-right: 10px;
+        }
+
+        .navbar.scrolled .navbar-brand img {
+            max-width: 40px;
+        }
+
+        .navbar-brand span {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--dark-color);
+            font-weight: 500;
+            padding: 10px 15px;
+            margin: 0 8px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .navbar-nav .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .navbar-nav .nav-link:hover:after,
+        .navbar-nav .nav-item.active .nav-link:after {
+            width: 70%;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-item.active .nav-link {
+            color: var(--primary-color);
+        }
+
+        /* Language Selector */
+        .language-selector {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .language-selector select {
+            padding: 10px 30px 10px 15px;
+            border-radius: 8px;
+            border: 1px solid #d1d5db;
+            background-color: white;
+            color: var(--text-color);
+            font-size: 15px;
+            font-weight: 500;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%231e40af' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.75rem center;
+            background-size: 16px 12px;
+            cursor: pointer;
+        }
+
+        .language-selector select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.2);
+            outline: none;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), 
+                        url('https://images.unsplash.com/photo-1580130775562-0e030c9bbbe0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat fixed;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 120px;
+            background: linear-gradient(to top, var(--light-color), transparent);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-section h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.3;
+            text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-section p {
+            font-size: 1.3rem;
+            max-width: 750px;
+            margin: 0 auto 30px;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .countdown-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+            padding: 25px 30px;
+            border-radius: 12px;
+            font-size: 1.3rem;
+            font-weight: 500;
+            text-align: center;
+            min-width: 110px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            transition: all 0.3s ease;
+        }
+
+        .countdown-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .countdown-value {
+            display: block;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .countdown-label {
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            opacity: 0.85;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            border: none;
+            padding: 14px 35px;
+            border-radius: 50px;
+            font-size: 1.15rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-primary:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-hover), #2563eb);
+            transition: all 0.5s ease;
+            z-index: -1;
+        }
+
+        .btn-primary:hover:before {
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(30, 64, 175, 0.4);
+        }
+
+        /* Packs Section */
+        .packs-section {
+            padding: 120px 0;
+            background-color: white;
+            position: relative;
+        }
+
+        .packs-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to bottom, var(--light-color), transparent);
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background: var(--gradient-primary);
+            border-radius: 3px;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto 60px;
+            line-height: 1.8;
+        }
+
+        /* Pack Titles */
+        .pack-titles {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .pack-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--dark-color);
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            white-space: nowrap;
+        }
+
+        .pack-title.bronze {
+            background: linear-gradient(90deg, var(--bronze-color), #ca8a04);
+            color: white;
+        }
+
+        .pack-title.gold {
+            background: linear-gradient(90deg, var(--gold-color), #eab308);
+            color: white;
+        }
+
+        .pack-title.diamond {
+            background: linear-gradient(90deg, var(--diamond-color), #0ea5e9);
+            color: white;
+        }
+
+        .pack-title.platinum {
+            background: linear-gradient(90deg, var(--platinum-color), #94a3b8);
+            color: var(--dark-color);
+        }
+
+        .pack-title:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .pack-card {
+            background-color: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pack-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+        }
+
+        .pack-card.bronze::after {
+            background: linear-gradient(90deg, var(--bronze-color), #ca8a04);
+        }
+
+        .pack-card.gold::after {
+            background: linear-gradient(90deg, var(--gold-color), #eab308);
+        }
+
+        .pack-card.diamond::after {
+            background: linear-gradient(90deg, var(--diamond-color), #0ea5e9);
+        }
+
+        .pack-card.platinum::after {
+            background: linear-gradient(90deg, var(--platinum-color), #94a3b8);
+        }
+
+        .pack-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .pack-card h3 {
+            display: none; /* Masquer les titres dans les cartes */
+        }
+
+        .pack-card p {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .pack-card .price {
+            font-size: 2.3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 20px 0;
+            position: relative;
+            display: inline-block;
+        }
+
+        .pack-card .price::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50%;
+            height: 2px;
+            background: var(--gradient-primary);
+        }
+
+        .pack-card .features-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 25px;
+            text-align: left; /* Aligner à gauche pour un look plus propre */
+            flex-grow: 1;
+        }
+
+        .pack-card .features-list li {
+            display: flex;
+            align-items: center; /* Centrer verticalement */
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            color: var(--text-color);
+            line-height: 1.4;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .pack-card .features-list li i {
+            margin-right: 12px;
+            font-size: 1.1rem;
+            min-width: 24px; /* Largeur fixe pour les icônes */
+            text-align: center; /* Centrer l'icône dans son espace */
+        }
+
+        .pack-card .features-list li .fa-check-circle {
+            color: var(--success-color);
+        }
+
+        .pack-card .features-list li .fa-times-circle {
+            color: #ef4444;
+            opacity: 0.5;
+        }
+
+        .pack-card .features-list li span {
+            flex: 1; /* Le texte prend l'espace restant */
+        }
+
+        .pack-card .btn-container {
+            margin-top: auto;
+            padding-top: 15px;
+        }
+
+        /* Product Section */
+        .product-section {
+            padding: 120px 0;
+            background-color: var(--light-color);
+            position: relative;
+        }
+
+        .product-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to bottom, white, transparent);
+        }
+
+        .phase-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .phase-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+
+        .product-image {
+            height: 300px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+        }
+
+        .product-image:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+            transition: all 0.4s ease;
+            height: 100%;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .product-card:hover {
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+        }
+
+        .product-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .product-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+
+        .product-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .product-card li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 25px;
+            font-size: 0.95rem;
+        }
+
+        .product-card li:before {
+            content: "\f058";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--success-color);
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 120px 0;
+            background-color: white;
+            position: relative;
+        }
+
+        .gallery-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to bottom, var(--light-color), transparent);
+        }
+
+        .gallery-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .gallery-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background: var(--gradient-primary);
+            border-radius: 3px;
+        }
+
+        .gallery-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto 60px;
+            line-height: 1.8;
+        }
+
+        .gallery-carousel .carousel-inner {
+            overflow: visible;
+            border-radius: 16px;
+        }
+
+        .gallery-item {
+            margin: 0 10px;
+            flex: 1;
+            max-width: 400px;
+            transition: all 0.4s ease;
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-item:hover .gallery-img {
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+
+        .carousel-control-prev, .carousel-control-next {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-control-prev {
+            left: -25px;
+        }
+
+        .carousel-control-next {
+            right: -25px;
+        }
+
+        .carousel-control-prev:hover, .carousel-control-next:hover {
+            opacity: 1;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-indicators {
+            bottom: -40px;
+        }
+
+        .carousel-indicators button {
+            background-color: var(--text-light);
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-indicators .active {
+            background-color: var(--primary-color);
+            transform: scale(1.3);
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #2d3748, #1a202c);
+            color: #fff;
+            padding: 60px 0 30px;
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-primary);
+        }
+
+        .footer h5 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: white;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer h5::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+
+        .footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer ul li {
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+
+        .footer ul li:hover {
+            opacity: 1;
+            transform: translateX(5px);
+        }
+
+        .footer ul li i {
+            margin-right: 10px;
+            color: var(--primary-color);
+            min-width: 20px;
+        }
+
+        .footer .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 1.2rem;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer .social-icons a:hover {
+            background: var(--gradient-primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 40px;
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 999;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+            bottom: 90px;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(30, 64, 175, 0.4);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 1199.98px) {
+            .hero-section h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 991.98px) {
+            .hero-section {
+                padding: 80px 0;
+                min-height: 80vh;
+                background-attachment: scroll;
+            }
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+            .section-title {
+                font-size: 2.2rem;
+            }
+            .carousel-control-prev {
+                left: 10px;
+            }
+            .carousel-control-next {
+                right: 10px;
+            }
+            .pack-title {
+                font-size: 1.5rem;
+                padding: 8px 15px;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .hero-section {
+                padding: 60px 0;
+            }
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+            .hero-section p {
+                font-size: 1.1rem;
+            }
+            .countdown-item {
+                min-width: 90px;
+                padding: 15px;
+            }
+            .countdown-value {
+                font-size: 1.6rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .pack-card, .product-card {
+                margin-bottom: 25px;
+            }
+            .footer {
+                padding: 40px 0 20px;
+            }
+            .footer h5 {
+                font-size: 1.1rem;
+            }
+            .footer ul li {
+                font-size: 0.9rem;
+            }
+            .footer .social-icons a {
+                font-size: 1.1rem;
+                width: 36px;
+                height: 36px;
+                margin-right: 8px;
+            }
+            .pack-title {
+                font-size: 1.3rem;
+                padding: 8px 12px;
+            }
+            .pack-titles {
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .hero-section h1 {
+                font-size: 1.8rem;
+            }
+            .hero-section p {
+                font-size: 1rem;
+            }
+            .countdown-item {
+                min-width: 70px;
+                padding: 10px;
+                font-size: 1rem;
+            }
+            .countdown-value {
+                font-size: 1.4rem;
+            }
+            .section-title {
+                font-size: 1.6rem;
+            }
+            .pack-card .price {
+                font-size: 1.8rem;
+            }
+            .language-selector {
+                bottom: 70px;
+                right: 15px;
+            }
+            .language-selector select {
+                padding: 8px 25px 8px 12px;
+                font-size: 13px;
+            }
+            .back-to-top {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+            .pack-title {
+                font-size: 1.1rem;
+                padding: 6px 10px;
+            }
+            .pack-titles {
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <select id="language-select">
+            <option value="fr">Français</option>
+            <option value="en">English</option>
+        </select>
+    </div>
+
+    <!-- Back to top button -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container hero-content">
+            <h1 data-aos="fade-down">Foire de Canton 2025 : Votre Passerelle vers le Commerce Mondial</h1>
+            <p data-aos="fade-up" data-aos-delay="100">Rejoignez la plus grande foire commerciale au monde à Guangzhou, Chine, pour établir des partenariats internationaux et propulser votre entreprise vers de nouveaux sommets.</p>
+            <div class="countdown-wrapper" data-aos="fade-up" data-aos-delay="200">
+                <div id="defaultCountdown" class="d-flex justify-content-center gap-3"></div>
+            </div>
+            <a href="https://forms.gle/4g1Cp3NRpA3Qys3X8" class="btn btn-primary" data-aos="fade-up" data-aos-delay="300">Inscrivez-vous Maintenant</a>
+        </div>
+    </section>
+
+    <!-- Packs Section -->
+    <section class="packs-section">
+        <div class="container">
+            <h1 class="section-title" data-aos="fade-right">Nos Offres Exclusives</h1>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                Solutions sur mesure pour maximiser votre expérience à la Foire de Canton.<br>
+                Accompagnement professionnel adapté à vos ambitions commerciales.<br>
+                Réservez votre pack pour garantir une visite réussie.
+            </p>
+            <!-- Pack Titles -->
+            <div class="pack-titles d-flex justify-content-center flex-wrap gap-4 mb-5" data-aos="fade-up" data-aos-delay="150">
+              
+               
+            </div>
+            <!-- Packs Cards -->
+            <div class="row g-4">
+                <!-- Pack Bronze -->
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="pack-title bronze">🥉 Pack Bronze</h3>
+                    <div class="pack-card bronze">
+                        <div>
+                              
+                            <p>Une première immersion professionnelle à la Foire de Canton.</p>
+                            <p class="price">2 499 € <span style="font-size: 1rem;">(par phase)</span></p>
+                            <ul class="features-list">
+                                <li><i class="fas fa-check-circle"></i><span>Assistance pour l'obtention du visa</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Visite de la Foire de Canton</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Accompagnement dans vos négociations</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Clarification des objectifs commerciaux</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Visite des marchés (électronique/textile)</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Assistance post-foire (3 mois)</span></li>
+                                <li><i class="fas fa-times-circle"></i><span>Plan d'action personnalisé</span></li>
+                                <li><i class="fas fa-times-circle"></i><span>Hébergement luxe (7j/6n)</span></li>
+                                <li><i class="fas fa-times-circle"></i><span>Visite privée d'une usine</span></li>
+                                <li><i class="fas fa-times-circle"></i><span>Mise en relation avec fournisseurs</span></li>
+                                <li><i class="fas fa-times-circle"></i><span>Déplacements internes inclus</span></li>
+                                <li><i class="fas fa-times-circle"></i><span>Dîner inclus</span></li>
+                                <li><i class="fas fa-times-circle"></i><span>Visite de Yiwu</span></li>
+                                <li><i class="fas fa-times-circle"></i><span>Coaching business stratégique</span></li>
+                                <li><i class="fas fa-times-circle"></i><span>Aide à l'importation</span></li>
+                                <li><i class="fas fa-times-circle"></i><span>Suivi personnalisé (24 mois)</span></li>
+                            </ul>
+                        </div>
+                        <div class="btn-container">
+                            <a href="https://forms.gle/4g1Cp3NRpA3Qys3X8" class="btn btn-primary">Réservez maintenant</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Pack Gold -->
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                     <h3 class="pack-title gold">🥈 Pack Gold</h3>
+                    <div class="pack-card gold">
+                        <div>
+                            
+               
+                            <p>Optimisez votre expérience avec un accompagnement renforcé.</p>
+                            <p class="price">3 499 € <span style="font-size: 1rem;">(par phase)</span></p>
+                            <ul class="features-list">
+                                <li><i class="fas fa-check-circle"></i><span>Assistance pour l'obtention du visa</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Visite de la Foire de Canton</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Accompagnement dans vos négociations</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Clarification des objectifs commerciaux</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Visite des marchés (Guangzhou)</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Assistance post-foire (6 mois)</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Plan d'action personnalisé</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Hébergement luxe (7j/6n)</span></li>
+                                <li><i class="fas fa-times-circle"></i><span>Visite privée d'une usine</span></li>
+                                <li><i class="fas fa-times-circle"></i><span>Mise en relation avec fournisseurs</span></li>
+                                <li><i class="fas fa-times-circle"></i><span>Déplacements internes inclus</span></li>
+                                <li><i class="fas fa-times-circle"></i><span>Dîner inclus</span></li>
+                                <li><i class="fas fa-times-circle"></i><span>Visite de Yiwu</span></li>
+                                <li><i class="fas fa-times-circle"></i><span>Coaching business stratégique</span></li>
+                                <li><i class="fas fa-times-circle"></i><span>Aide à l'importation</span></li>
+                                <li><i class="fas fa-times-circle"></i><span>Suivi personnalisé (24 mois)</span></li>
+                            </ul>
+                        </div>
+                        <div class="btn-container">
+                            <a href="https://forms.gle/4g1Cp3NRpA3Qys3X8" class="btn btn-primary">Réservez maintenant</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Pack Diamond -->
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <h3 class="pack-title diamond">💎 Pack Diamond</h3>
+                    <div class="pack-card diamond">
+                        
+                        <div>
+                             
+                
+                            <p>Une expérience VIP pour des résultats concrets.</p>
+                            <p class="price">4 499 € <span style="font-size: 1rem;">(par phase)</span></p>
+                            <ul class="features-list">
+                                <li><i class="fas fa-check-circle"></i><span>Assistance pour l'obtention du visa</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Visite de la Foire de Canton</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Accompagnement dans vos négociations</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Clarification des objectifs commerciaux</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Visite des marchés (Guangzhou)</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Assistance post-foire (12 mois)</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Plan d'action personnalisé</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Hébergement luxe (7j/6n)</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Visite privée d'une usine</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Mise en relation avec fournisseurs</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Déplacements internes inclus</span></li>
+                                <li><i class="fas fa-times-circle"></i><span>Dîner inclus</span></li>
+                                <li><i class="fas fa-times-circle"></i><span>Visite de Yiwu</span></li>
+                                <li><i class="fas fa-times-circle"></i><span>Coaching business stratégique</span></li>
+                                <li><i class="fas fa-times-circle"></i><span>Aide à l'importation</span></li>
+                                <li><i class="fas fa-times-circle"></i><span>Suivi personnalisé (24 mois)</span></li>
+                            </ul>
+                        </div>
+                        <div class="btn-container">
+                            <a href="https://forms.gle/4g1Cp3NRpA3Qys3X8" class="btn btn-primary">Réservez maintenant</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Pack Platinum -->
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                    <h3 class="pack-title platinum">🌍 Pack Platinum</h3>
+                    <div class="pack-card platinum">
+                        
+                        <div>
+                            
+                            <p>L'expérience ultime : 10 octobre au 10 novembre 2025.</p>
+                            <p class="price">9 999 € <span style="font-size: 1rem;">(3 phases)</span></p>
+                            <ul class="features-list">
+                                <li><i class="fas fa-check-circle"></i><span>Assistance pour l'obtention du visa</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Visite de la Foire de Canton</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Accompagnement dans vos négociations</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Clarification des objectifs commerciaux</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Visite des marchés (Guangzhou)</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Assistance post-foire (24 mois)</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Plan d'action personnalisé</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Hébergement luxe (30j)</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Visite privée d'une usine</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Mise en relation avec fournisseurs</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Déplacements internes inclus</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Dîner inclus</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Visite de Yiwu</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Coaching business stratégique</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Aide à l'importation</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Suivi personnalisé (24 mois)</span></li>
+                            </ul>
+                        </div>
+                        <div class="btn-container">
+                            <a href="https://forms.gle/4g1Cp3NRpA3Qys3X8" class="btn btn-primary">Réservez maintenant</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Section -->
+    <section class="product-section">
+        <div class="container">
+            <h1 class="section-title" data-aos="fade-right">Produits Disponibles</h1>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Découvrez une vaste gamme de produits innovants répartis sur trois phases, offrant des opportunités uniques pour vos besoins commerciaux.</p>
+
+            <!-- Phase 1 -->
+            <h3 class="phase-title" data-aos="fade-up">Phase 1 : 15-19 Octobre 2025</h3>
+            <div class="row mb-5" data-aos="fade-up">
+                <div class="col-md-6 mb-4">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                         alt="Produits Phase 1" class="img-fluid rounded shadow product-image">
+                </div>
+                <div class="col-md-6 mb-4">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                         alt="Produits Phase 1" class="img-fluid rounded shadow product-image">
+                </div>
+            </div>
+            <div class="row g-4 mb-5">
+                <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="product-card">
+                        <h3>Produits Industriels</h3>
+                        <ul>
+                            <li>Vélos et motocycles</li>
+                            <li>Outils et matériel</li>
+                            <li>Machinerie agricole</li>
+                            <li>Équipement d'éclairage</li>
+                            <li>Machines de construction</li>
+                            <li>Pièces de rechange pour véhicules</li>
+                            <li>Appareils électriques ménagers</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="product-card">
+                        <h3>Électronique & Technologie</h3>
+                        <ul>
+                            <li>Nouvelle ressource énergétique</li>
+                            <li>Produits électroniques et électriques</li>
+                            <li>Équipement de machines de traitement</li>
+                            <li>Automatisation industrielle</li>
+                            <li>Nouveaux matériaux et produits chimiques</li>
+                            <li>Machinerie électrique et alimentation</li>
+                            <li>Électronique grand public</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 2 -->
+            <h3 class="phase-title" data-aos="fade-up">Phase 2 : 23-27 Octobre 2025</h3>
+            <div class="row mb-5" data-aos="fade-up">
+                <div class="col-md-6 mb-4">
+                    <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                         alt="Produits Phase 2" class="img-fluid rounded shadow product-image">
+                </div>
+                <div class="col-md-6 mb-4">
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80" 
+                         alt="Produits Phase 2" class="img-fluid rounded shadow product-image">
+                </div>
+            </div>
+            <div class="row g-4 mb-5">
+                <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="product-card">
+                        <h3>Décoration & Maison</h3>
+                        <ul>
+                            <li>Meubles et décoration intérieure</li>
+                            <li>Céramique d'art et verrerie</li>
+                            <li>Cadeaux et articles ménagers</li>
+                            <li>Produits de festival</li>
+                            <li>Céramique générale</li>
+                            <li>Produits de jardinage</li>
+                            <li>Ustensiles de cuisine et vaisselle</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="product-card">
+                        <h3>Matériaux & Équipement</h3>
+                        <ul>
+                            <li>Produits de tissage, rotin et fer</li>
+                            <li>Équipement sanitaire et salle de bain</li>
+                            <li>Horloges et instruments optiques</li>
+                            <li>Matériaux de construction</li>
+                            <li>Décorations en pierre/fer</li>
+                            <li>Équipement de spa extérieur</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 3 -->
+            <h3 class="phase-title" data-aos="fade-up">Phase 3 : 31 Octobre - 4 Novembre 2025</h3>
+            <div class="row mb-5" data-aos="fade-up">
+                <div class="col-md-6 mb-4">
+                    <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                         alt="Produits Phase 3" class="img-fluid rounded shadow product-image">
+                </div>
+                <div class="col-md-6 mb-4">
+                    <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                         alt="Produits Phase 3" class="img-fluid rounded shadow product-image">
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="product-card">
+                        <h3>Mode & Textile</h3>
+                        <ul>
+                            <li>Jouets et articles pour enfants</li>
+                            <li>Chaussures et accessoires</li>
+                            <li>Caisses et sacs</li>
+                            <li>Sous-vêtements</li>
+                            <li>Carpets et tapis</li>
+                            <li>Articles de toilette</li>
+                            <li>Textiles de la maison</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="product-card">
+                        <h3>Divers</h3>
+                        <ul>
+                            <li>Fournitures de bureau</li>
+                            <li>Produits de soins personnels</li>
+                            <li>Sports et vêtements décontractés</li>
+                            <li>Matières premières textiles</li>
+                            <li>Accessoires de mode</li>
+                            <li>Produits pour bébé et maternité</li>
+                            <li>Produits sportifs et récréatifs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <h1 class="gallery-title" data-aos="fade-right">Galerie de la Foire</h1>
+            <p class="gallery-subtitle" data-aos="fade-up" data-aos-delay="100">Explorez notre sélection d'images captivantes de la Foire de Canton 2025</p>
+            
+            <div id="galleryCarousel" class="carousel slide gallery-carousel" data-bs-ride="carousel" data-bs-interval="3000">
+                <div class="carousel-inner">
+                    <!-- First Set of 3 Images -->
+                    <div class="carousel-item active">
+                        <div class="d-flex justify-content-center">
+                            <div class="gallery-item">
+                                <img src="assets/img1.jpeg" alt="Stand d'exposition" class="gallery-img" loading="lazy">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="assets/img2.jpeg" alt="Visiteurs à la foire" class="gallery-img" loading="lazy">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="assets/img3.jpeg" alt="Négociations commerciales" class="gallery-img" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Second Set of 3 Images -->
+                    <div class="carousel-item">
+                        <div class="d-flex justify-content-center">
+                            <div class="gallery-item">
+                                <img src="assets/img4.jpeg" alt="Produits d'exposition" class="gallery-img" loading="lazy">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="assets/img5.jpeg" alt="Stand technologique" class="gallery-img" loading="lazy">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="assets/img6.jpeg" alt="Présentation de produits" class="gallery-img" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Third Set of 3 Images -->
+                    <div class="carousel-item">
+                        <div class="d-flex justify-content-center">
+                            <div class="gallery-item">
+                                <img src="assets/img7.jpeg" alt="Réunion d'affaires" class="gallery-img" loading="lazy">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="assets/img8.jpeg" alt="Exposition textile" class="gallery-img" loading="lazy">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="assets/img9.jpeg" alt="Networking à la foire" class="gallery-img" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Précédent</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#galleryCarousel" data-bs-slide="next">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Suivant</span>
+                </button>
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#galleryCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+<!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <!-- Footer Brand -->
+            <div class="footer-brand" data-aos="fade-down">
+                <h4>Ubuntu Trade Company</h4>
+                <p>Votre partenaire privilégié pour la Foire de Canton 2025. Nous facilitons vos échanges commerciaux internationaux avec expertise et professionnalisme.</p>
+            </div>
+
+            <!-- Footer Sections -->
+            <div class="row g-4">
+                <!-- About Section -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="footer-section">
+                        <h5><i class="fas fa-info-circle me-2"></i>À propos de nous</h5>
+                        <p style="opacity: 0.9; line-height: 1.7;">Spécialisés dans l'accompagnement des entreprises à la Foire de Canton, nous offrons des solutions complètes pour maximiser vos opportunités d'affaires en Chine.</p>
+                        <div class="contact-info">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Jinan City, Shandong Province, China</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Section -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="footer-section">
+                        <h5><i class="fas fa-phone me-2"></i>Contactez-nous</h5>
+                        <div class="phone-section">
+                            <div class="phone-header">
+                                <i class="fas fa-globe"></i>
+                                Numéros internationaux
+                            </div>
+                             <div class="phone-item">
+                                <span class="country-flag">🇨🇳</span>
+                                <span>Chine: <a href="tel:+8617686682396">+86 176 8668 2396</a></span>
+                            </div>
+                            <div class="phone-item">
+                                <span class="country-flag">🇨🇳</span>
+                                <span>Chine: <a href="tel:+8618260631607">+86 182 6063 1607</a></span>
+                            </div>
+                            <div class="phone-item">
+                                <span class="country-flag">🇫🇷</span>
+                                <span>France: <a href="tel:+33744203364">+33 7 44 20 33 64</a></span>
+                            </div>
+                            <div class="phone-item">
+                                <span class="country-flag">🇨🇬</span>
+                                <span>Congo Brazzaville: <a href="tel:+242068727548">+242 06 872 7548</a></span>
+                            </div>
+                            <div class="phone-item">
+                                <span class="country-flag">🇨🇬</span>
+                                <span>Pointe Noire: <a href="tel:+242050583930">+242 05 058 3930</a></span>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social & Services Section -->
+                <div class="col-lg-4 col-md-12" data-aos="fade-up" data-aos-delay="300">
+                    <div class="footer-section social-section">
+                        <h5><i class="fas fa-share-alt me-2"></i>Suivez-nous</h5>
+                        <p style="opacity: 0.8; margin-bottom: 20px;">Restez connecté pour les dernières actualités de la Foire de Canton et nos offres exclusives.</p>
+                        <div class="social-icons">
+                            <a href="https://chat.whatsapp.com/Bz9808xxAsQDerWV51m7FS?mode=ems_copy_t" title="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://chat.whatsapp.com/Bz9808xxAsQDerWV51m7FS?mode=ems_copy_t" title="YouTube">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="https://chat.whatsapp.com/Bz9808xxAsQDerWV51m7FS?mode=ems_copy_t" title="WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <a href="https://chat.whatsapp.com/Bz9808xxAsQDerWV51m7FS?mode=ems_copy_t" title="TikTok">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                        </div>
+                        <div class="contact-info" style="margin-top: 25px;">
+                            <i class="fas fa-envelope"></i>
+                            <span>Email: info@ubuntu-trade.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom" data-aos="fade-up" data-aos-delay="400">
+            <div class="container">
+                <p>© 2025 Ubuntu Trade Company. Tous droits réservés. | Foire de Canton 2025 - Votre succès, notre mission.</p>
+            </div>
+        </div>
+    </footer>
+
+<style>
+    /* Footer */
+.footer {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+    color: #fff;
+    padding: 80px 0 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(135deg, #1e40af, #3b82f6);
+    box-shadow: 0 2px 10px rgba(30, 64, 175, 0.3);
+}
+
+.footer::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 60%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(30, 64, 175, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.footer-content {
+    position: relative;
+    z-index: 2;
+    padding-bottom: 40px;
+}
+
+.footer-brand {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.footer-brand h4 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, #1e40af, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.footer-brand p {
+    font-size: 1.1rem;
+    opacity: 0.8;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.footer h5 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: #fff;
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.footer h5::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(135deg, #1e40af, #3b82f6);
+    border-radius: 2px;
+}
+
+.footer-section {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 16px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.footer-section:hover {
+    background: rgba(255, 255, 255, 0.04);
+    transform: translateY(-5px);
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer ul li {
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.footer ul li:hover {
+    transform: translateX(8px);
+}
+
+.contact-info {
+    display: flex;
+    align-items: flex-start;
+    opacity: 0.9;
+    transition: all 0.3s ease;
+}
+
+.contact-info:hover {
+    opacity: 1;
+}
+
+.contact-info i {
+    margin-right: 12px;
+    margin-top: 2px;
+    color: #60a5fa;
+    font-size: 1.1rem;
+    min-width: 20px;
+}
+
+.contact-info span {
+    flex: 1;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.phone-section {
+    margin-top: 20px;
+}
+
+.phone-header {
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #e2e8f0;
+    display: flex;
+    align-items: center;
+}
+
+.phone-header i {
+    margin-right: 8px;
+    color: #60a5fa;
+}
+
+.phone-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.phone-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.country-flag {
+    font-size: 1.2rem;
+    margin-right: 10px;
+}
+
+.phone-item a {
+    color: #94a3b8;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.phone-item a:hover {
+    color: #60a5fa;
+}
+
+.social-section {
+    text-align: center;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    font-size: 1.3rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.social-icons a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1e40af, #3b82f6);
+    transition: all 0.4s ease;
+    z-index: -1;
+}
+
+.social-icons a:hover::before {
+    left: 0;
+}
+
+.social-icons a:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(30, 64, 175, 0.3);
+}
+
+.footer-bottom {
+    background: rgba(0, 0, 0, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 25px 0;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 0.95rem;
+    opacity: 0.7;
+}
+
+/* Responsive adjustments for footer */
+@media (max-width: 991.98px) {
+    .footer {
+        padding: 60px 0 0;
+    }
+    
+    .footer-brand {
+        margin-bottom: 40px;
+    }
+    
+    .footer-brand h4 {
+        font-size: 1.7rem;
+    }
+    
+    .footer-section {
+        padding: 25px;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .footer {
+        padding: 40px 0 0;
+    }
+    
+    .footer-brand {
+        margin-bottom: 30px;
+    }
+    
+    .footer-brand h4 {
+        font-size: 1.5rem;
+    }
+    
+    .footer-brand p {
+        font-size: 1rem;
+    }
+    
+    .footer h5 {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+    }
+    
+    .footer-section {
+        padding: 20px;
+    }
+    
+    .social-icons {
+        gap: 12px;
+    }
+    
+    .social-icons a {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+    
+    .phone-item {
+        font-size: 0.9rem;
+    }
+    
+    .footer-bottom {
+        padding: 20px 0;
+    }
+    
+    .footer-bottom p {
+        font-size: 0.85rem;
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .footer-brand h4 {
+        font-size: 1.3rem;
+    }
+    
+    .social-icons {
+        gap: 10px;
+    }
+    
+    .social-icons a {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+    }
+    
+    .phone-item {
+        font-size: 0.85rem;
+        padding: 6px 10px;
+    }
+    
+    .country-flag {
+        font-size: 1rem;
+        margin-right: 8px;
+    }
+}
+</style>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+
+        // Navbar scroll effect
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 50) {
+                $('.navbar').addClass('scrolled');
+            } else {
+                $('.navbar').removeClass('scrolled');
+            }
+            
+            // Back to top button
+            if ($(this).scrollTop() > 300) {
+                $('.back-to-top').addClass('active');
+            } else {
+                $('.back-to-top').removeClass('active');
+            }
+        });
+
+        // Back to top
+        $('.back-to-top').click(function(e) {
+            e.preventDefault();
+            $('html, body').animate({scrollTop:0}, '300');
+        });
+
+        // Language selector
+        $("#language-select").change(function () {
+            const lang = this.value;
+            let url = window.location.href;
+            if (lang === "en") {
+                url = url.replace("/fr/", "/en/");
+            } else if (lang === "fr") {
+                url = url.replace("/en/", "/fr/");
+            }
+            window.location.href = url;
+        });
+
+        // Countdown
+        $(document).ready(function () {
+            const targetDate = new Date('2025-10-15T00:00:00');
+            const now = new Date();
+            if (now > targetDate) {
+                targetDate.setFullYear(targetDate.getFullYear() + 1);
+            }
+            $('#defaultCountdown').countdown(targetDate, function (event) {
+                $(this).html(event.strftime(`
+                    <div class="countdown-item">
+                        <span class="countdown-value">%D</span>
+                        <span class="countdown-label">Jours</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value">%H</span>
+                        <span class="countdown-label">Heures</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value">%M</span>
+                        <span class="countdown-label">Minutes</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value">%S</span>
+                        <span class="countdown-label">Secondes</span>
+                    </div>
+                `));
+            });
+        });
+    </script>
+</body>
+</html>
